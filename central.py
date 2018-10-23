@@ -9,6 +9,8 @@ def main():
         barcodeWorker.main(dataDir,pairedLabel)
 
     # run quantification pipelines for each barcode-specific FASTQ file
+
+    # generate histograms of read maping for highesta buundace transcripts.
     
 
     return None
