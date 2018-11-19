@@ -2,7 +2,8 @@ import os,sys
 
 def main():
 
-    dataDir='/Volumes/omics4tb/alomana/projects/mtb/data/01_VS_Splitseq-190834694/'
+    dataDir='/Users/adriandelomana/Google Drive/projects/mtb/data/splitseq/01_VS_Splitseq-190834694/'
+    indexDir='/Users/adriandelomana/Google Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/indexes'
 
     detectedFiles=os.listdir(dataDir)
     pairedLabels=[element.split('_R1')[0] for element in detectedFiles if '_R1' in element]
@@ -10,4 +11,4 @@ def main():
     pairedLabels=list(set(pairedLabels))
     pairedLabels.sort()
 
-    return dataDir,pairedLabels
+    return dataDir,indexDir,pairedLabels

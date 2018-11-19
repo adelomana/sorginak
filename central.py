@@ -1,14 +1,18 @@
 import sys
-import optionReader,barcodeWorker
+import optionReader,barcodeWorker,readMapper
 
 def main():
 
     # f.1. generate barcode-specific FASTQ files
-    #/ this step needs to be parallel
-    for pairedLabel in pairedLabels:
-        barcodeWorker.main(dataDir,pairedLabel)
+    #/ consider this step for parallelization
+    #for pairedLabel in pairedLabels:
+    #    barcodeWorker.main(dataDir,pairedLabel)
 
-    # run quantification pipelines for each barcode-specific FASTQ file
+    # f.2. run quantification pipelines for each barcode-specific FASTQ file
+
+    # map reads
+    readMapper.main(dataDir,indexDir)
+    
 
     # generate histograms of read maping for highesta buundace transcripts.
     
@@ -21,7 +25,7 @@ def main():
 # 0.1. hard-coded variable
 
 # 0.2. read user defined variables
-dataDir,pairedLabels=optionReader.main()
+dataDir,indexDir,pairedLabels=optionReader.main()
 
 # 1. run algoritm
 main()
