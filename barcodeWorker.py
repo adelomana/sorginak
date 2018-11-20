@@ -1,18 +1,18 @@
 import sys
 import Bio,Bio.Seq
 
-def main(dataDir,pairedLabel):
+def main(fileLocations,sampleName):
 
 
     #/ need to write clean reads into another folder
 
-    print('detecting barcodes for {}...'.format(pairedLabel))
+    print('detecting barcodes for {}...'.format(sampleName))
     
     #! must go
     barcode='ATTCACTTCAGTCATGAT'
     reverseBarcode,complementBarcode,reverseComplementBarcode=perspectiveViewer(barcode)
-    read1file=dataDir+pairedLabel+'_R1_001.fastq'
-    read2file=dataDir+pairedLabel+'_R2_001.fastq'
+    read1file=fileLocations.FASTQdir+sampleName+'_R1_001.fastq'
+    read2file=fileLocations.FASTQdir+sampleName+'_R2_001.fastq'
     fragmentThresholdLength=25
 
     # f.1. inspect reads

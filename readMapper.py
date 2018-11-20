@@ -1,20 +1,20 @@
-import os
+import os,sys
 
-def indexBuilder():
+def indexBuilder(fileLocations):
+
+    executable='bowtie2-build'
 
     # build genome index
-    executable='bowtie2-build'
-    fastaFile='/Users/adriandelomana/Google\ Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/246196.genome.fasta'
-    indexOutputDir='/Users/adriandelomana/Google\ Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/indexes/246196.genome.index'
+    fastaFile=fileLocations.MSMgenomeFile
+    indexOutputDir=fileLocations.genomicIndexesDir+'246196.genome.index'
     cmdList=[executable,fastaFile,indexOutputDir]
     cmd=' '.join(cmdList)
     print(cmd)
     os.system(cmd)
 
     # build transcriptome index
-    executable='bowtie2-build'
-    fastaFile='/Users/adriandelomana/Google\ Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/246196.transcriptomes.fasta'
-    indexOutputDir='/Users/adriandelomana/Google\ Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/indexes/246196.transcriptome.index'
+    fastaFile=fileLocations.MSMtranscriptomeFile
+    indexOutputDir=fileLocations.genomicIndexesDir+'246196.transcriptome.index'
     cmdList=[executable,fastaFile,indexOutputDir]
     cmd=' '.join(cmdList)
     print(cmd)
@@ -22,29 +22,50 @@ def indexBuilder():
 
     return None
 
-def main(dataDir,indexDir):
-
-    cmd='bowtie2-build'
+def main(fileLocations,sampleNames):
 
     # f.1. build index
-    #indexBuilder()
+    #indexBuilder(fileLocations)
+
+    #! to go
+    cases=['case.1a','case.1b','case.2a','case.2b']
     
     # f.2. map reads
     executable='bowtie2'
-    flag1='-x'
-    index='/Users/adriandelomana/scratch/'+'246196.transcriptome.index'
-    flag2='-1'
-    flag3='-2'
-    pair1='/Users/adriandelomana/scratch/'+'VS-Splitseq_S1_L002_R1_001.case.1a.fastq'
-    pair2='/Users/adriandelomana/scratch/'+'VS-Splitseq_S1_L002_R2_001.case.1a.fastq'
-    flag4='-S'
-    outputBAM='test.sam'
+    flag0='-x'
+    index=fileLocations.genomicIndexesDir+'246196.genome.index'
+    flag1='-1'
+    flag2='-2'
+    flag3='-S'
 
-    cmdList=['time',executable,flag1,index,flag2,pair1,flag3,pair2,flag4,outputBAM,'--dovetail','--ff']
-    cmd=' '.join(cmdList)
-    print('')
-    print(cmd)
-    print('')
-    os.system(cmd)
+    for sampleName in sampleNames:
+        for case in cases:
+
+            pair1=fileLocations.FASTQdir+sampleName+'_R1_001.'+case+'.fastq'
+            pair2=fileLocations.FASTQdir+sampleName+'_R2_001.'+case+'.fastq'
+            outputBAM=fileLocations.bamDir+sampleName+'.'+case+'.sam'
+
+            cmdList=['time',executable,flag0,index,flag1,pair1,flag2,pair2,flag3,outputBAM]
+            cmd=' '.join(cmdList)
+
+            print('')
+            print(cmd)
+            print('')
+            os.system(cmd)
+
+        # mapping the original using local
+        pair1=fileLocations.FASTQdir+sampleName+'_R1_001.fastq'
+        pair2=fileLocations.FASTQdir+sampleName+'_R2_001.fastq'
+        outputBAM=fileLocations.bamDir+sampleName+'.original.sam'
+
+        cmdList=['time',executable,flag0,index,flag1,pair1,flag2,pair2,flag3,outputBAM,'-p 4 --local']
+        cmd=' '.join(cmdList)
+
+        print('')
+        print(cmd)
+        print('')
+        os.system(cmd)
+
+        sys.exit()
 
     return None

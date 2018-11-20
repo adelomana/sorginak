@@ -1,14 +1,22 @@
 import os,sys
 
+class PathClass:
+
+    def __init__(self):
+        self.FASTQdir=None
+        self.indexDir=None
+
 def main():
 
-    dataDir='/Users/adriandelomana/Google Drive/projects/mtb/data/splitseq/01_VS_Splitseq-190834694/'
-    indexDir='/Users/adriandelomana/Google Drive/projects/mtb/data/splitseq/referenceGenome/microbes.online/indexes'
+    fileLocations=PathClass()
 
-    detectedFiles=os.listdir(dataDir)
-    pairedLabels=[element.split('_R1')[0] for element in detectedFiles if '_R1' in element]
+    fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/01_VS_Splitseq-190834694/'
+    fileLocations.resultsDir='/Volumes/omics4tb/alomana/projects/mtb/results/'
+    fileLocations.genomicIndexesDir='/Volumes/omics4tb/alomana/projects/mtb/data/indexes/'
+    fileLocations.bamDir='/Volumes/omics4tb/alomana/projects/mtb/data/bam/'
 
-    pairedLabels=list(set(pairedLabels))
-    pairedLabels.sort()
+    fileLocations.MSMgenomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.genome.fasta'
+    fileLocations.MSMtranscriptomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.transcriptomes.fasta'
 
-    return dataDir,indexDir,pairedLabels
+
+    return fileLocations
