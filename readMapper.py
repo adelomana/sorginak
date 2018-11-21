@@ -4,17 +4,33 @@ def indexBuilder(fileLocations):
 
     executable='bowtie2-build'
 
-    # build genome index
+    # build genome index for M. smegmatis
     fastaFile=fileLocations.MSMgenomeFile
-    indexOutputDir=fileLocations.genomicIndexesDir+'246196.genome.index'
+    indexOutputDir=fileLocations.genomicIndexesDir+'MSM.genome.index'
     cmdList=[executable,fastaFile,indexOutputDir]
     cmd=' '.join(cmdList)
     print(cmd)
     os.system(cmd)
 
-    # build transcriptome index
+    # build transcriptome index for M. smegmatis
     fastaFile=fileLocations.MSMtranscriptomeFile
-    indexOutputDir=fileLocations.genomicIndexesDir+'246196.transcriptome.index'
+    indexOutputDir=fileLocations.genomicIndexesDir+'MSM.transcriptome.index'
+    cmdList=[executable,fastaFile,indexOutputDir]
+    cmd=' '.join(cmdList)
+    print(cmd)
+    os.system(cmd)
+
+    # build genome index for E. coli
+    fastaFile=fileLocations.ECOgenomeFile
+    indexOutputDir=fileLocations.genomicIndexesDir+'ECO.genome.index'
+    cmdList=[executable,fastaFile,indexOutputDir]
+    cmd=' '.join(cmdList)
+    print(cmd)
+    os.system(cmd)
+
+    # build transcriptome index for E. coli
+    fastaFile=fileLocations.ECOtranscriptomeFile
+    indexOutputDir=fileLocations.genomicIndexesDir+'ECO.transcriptome.index'
     cmdList=[executable,fastaFile,indexOutputDir]
     cmd=' '.join(cmdList)
     print(cmd)
@@ -25,7 +41,7 @@ def indexBuilder(fileLocations):
 def main(fileLocations,sampleNames):
 
     # f.1. build index
-    #indexBuilder(fileLocations)
+    indexBuilder(fileLocations)
 
     #! to go
     cases=['case.1a','case.1b','case.2a','case.2b']
@@ -33,7 +49,7 @@ def main(fileLocations,sampleNames):
     # f.2. map reads
     executable='bowtie2'
     flag0='-x'
-    index=fileLocations.genomicIndexesDir+'246196.genome.index'
+    index=fileLocations.genomicIndexesDir+'ECO.genome.index'
     flag1='-1'
     flag2='-2'
     flag3='-S'

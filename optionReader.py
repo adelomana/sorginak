@@ -17,6 +17,7 @@ def main():
 
     fileLocations.MSMgenomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.genome.fasta'
     fileLocations.MSMtranscriptomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.transcriptomes.fasta'
-
+    fileLocations.ECOgenomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/511145.genome.fasta'
+    fileLocations.ECOtranscriptomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/511145.transcriptomes.fasta'
 
     return fileLocations
