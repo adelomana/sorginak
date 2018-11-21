@@ -41,7 +41,7 @@ def indexBuilder(fileLocations):
 def main(fileLocations,sampleNames):
 
     # f.1. build index
-    indexBuilder(fileLocations)
+    #indexBuilder(fileLocations)
 
     #! to go
     cases=['case.1a','case.1b','case.2a','case.2b']
@@ -49,7 +49,7 @@ def main(fileLocations,sampleNames):
     # f.2. map reads
     executable='bowtie2'
     flag0='-x'
-    index=fileLocations.genomicIndexesDir+'ECO.genome.index'
+    index=fileLocations.genomicIndexesDir+'MSM.genome.index'
     flag1='-1'
     flag2='-2'
     flag3='-S'

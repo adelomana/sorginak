@@ -4,7 +4,7 @@ import random,pickle
 
 # 0.1. user defined variables
 transcriptCount=5
-transcriptLength=400
+transcriptLength=1000
 
 # 0.2. intrinsic variables
 bases=['A','T','G','C']
@@ -26,6 +26,10 @@ genome="".join(transcriptome)
 # 3. write the organism
 
 # 3.0. pickle genome and transcriptome 
+jar='ISI.pickle'
+f=open(jar,'wb')
+pickle.dump(transcriptome,genome,f)
+f.close()
 
 # 3.1. write the genome
 with open('000000.genome.fasta','w') as f:
