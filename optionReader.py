@@ -6,6 +6,19 @@ class PathClass:
         self.FASTQdir=None
         self.indexDir=None
 
+def genomeAnnotationReader(fileLocations):
+
+    genomeAnnotation={}
+    with open(fileLocations.MSMtranscriptomeFile,'r') as f:
+        for line in f:
+            if line[0] == '>':
+                v=line.split()
+                geneName=v[0][1:]
+                geneInfo=' '.join(v[1:])
+                genomeAnnotation[geneName]=geneInfo
+
+    return genomeAnnotation
+        
 def main():
 
     fileLocations=PathClass()
@@ -22,4 +35,7 @@ def main():
     fileLocations.bamDir=fileLocations.resultsDir+'bam/'
     fileLocations.genomicIndexesDir=fileLocations.resultsDir+'indexes/'
 
-    return fileLocations
+    # f.2. retrieve genome annotation
+    genomeAnnotation=genomeAnnotationReader(fileLocations)
+
+    return fileLocations,genomeAnnotation

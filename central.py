@@ -5,7 +5,7 @@ import barcodeWorkerSingle,readMapperSingle
 def main():
 
     # f.1. read user defined variables
-    fileLocations=optionReader.main()
+    fileLocations,genomeAnnotation=optionReader.main()
 
     # f.2. read sequence data
     sampleNames=dataReader.main(fileLocations)
@@ -21,7 +21,7 @@ def main():
 
     # f.5. map reads
     #readMapper.main(fileLocations,sampleNames) 
-    readMapperSingle.main(fileLocations,sampleNames) 
+    readMapperSingle.main(fileLocations,genomeAnnotation,sampleNames) 
 
     # f.6. generate histograms of read maping for highesta buundace transcripts.
 
