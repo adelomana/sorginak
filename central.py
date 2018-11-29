@@ -12,9 +12,9 @@ def main():
 
     # f.3. generate barcode-specific FASTQ files
     #/ consider this step for parallelization
-    #for sampleName in sampleNames:
-    #    print(sampleName)
-    #    barcodeWorkerSingle.main(fileLocations,sampleName)
+    for sampleName in sampleNames:
+        print(sampleName)
+        barcodeWorkerSingle.main(fileLocations,sampleName)
 
 
     # f.4. run quantification pipelines for each barcode-specific FASTQ file

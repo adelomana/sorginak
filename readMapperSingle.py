@@ -34,7 +34,8 @@ def main(fileLocations,genomeAnnotation,sampleNames):
     # f.2. map reads
     executable='kallisto quant'
     flagIndex='-i {}'.format(fileLocations.genomicIndexesDir+'kallisto/MSM.transcriptome.index')
-    flagOutput='-o {}'.format(fileLocations.resultsDir+'kallistoResults/MSM/{}'.format('.'.join(sampleNames)))
+    compositeName=os.path.commonprefix(sampleNames)
+    flagOutput='-o {}'.format(fileLocations.resultsDir+'kallistoResults/MSM/{}'.format(compositeName))
     flagOptions='-b 100 --single --plaintext -l 100 -s 10 --pseudobam'
 
     inputFiles=[]
@@ -66,22 +67,16 @@ def main(fileLocations,genomeAnnotation,sampleNames):
             expression[transcriptName]=estimatedCounts
     # sort
     sortedExpression=sorted(expression, key=expression.get,reverse=True)
+    print('\t')
     print('counts\tgeneID\tgeneDescription')
     for i in range(20):
         print('{}\t{}\t{}'.format(expression[sortedExpression[i]],sortedExpression[i],genomeAnnotation[sortedExpression[i]]))
-
-    sys.exit()
 
 # need to check if  has an effect. Also the distance.
 # 50,10  54,2
 # 100,10 53,5
 # 150,15 52,2
 # 200,20 50,8
-
-
-    
-# spit out the 20 most abundant transcripts with annotation
-
 
         
 
