@@ -1,5 +1,6 @@
 import sys
-import optionReader,dataReader,barcodeWorker,readMapper
+import optionReader,dataReader
+import barcodeWorkerSingle,readMapperSingle
 
 def main():
 
@@ -12,12 +13,15 @@ def main():
     # f.3. generate barcode-specific FASTQ files
     #/ consider this step for parallelization
     #for sampleName in sampleNames:
-    #    barcodeWorker.main(fileLocations,sampleName)
+    #    print(sampleName)
+    #    barcodeWorkerSingle.main(fileLocations,sampleName)
+
 
     # f.4. run quantification pipelines for each barcode-specific FASTQ file
 
     # f.5. map reads
-    readMapper.main(fileLocations,sampleNames) 
+    #readMapper.main(fileLocations,sampleNames) 
+    readMapperSingle.main(fileLocations,sampleNames) 
 
     # f.6. generate histograms of read maping for highesta buundace transcripts.
 
