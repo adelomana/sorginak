@@ -35,7 +35,7 @@ def main(fileLocations,genomeAnnotation,sampleNames):
     executable='kallisto quant'
     flagIndex='-i {}'.format(fileLocations.genomicIndexesDir+'kallisto/MSM.transcriptome.index')
     flagOutput='-o {}'.format(fileLocations.resultsDir+'kallistoResults/MSM/{}'.format('.'.join(sampleNames)))
-    flagOptions='-b 10 --single --plaintext -l 100 -s 100 --pseudobam'
+    flagOptions='-b 100 --single --plaintext -l 100 -s 10 --pseudobam'
 
     inputFiles=[]
     for sampleName in sampleNames:
