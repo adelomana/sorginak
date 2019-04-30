@@ -1,0 +1,29 @@
+01
+
+counts	geneID	geneDescription
+31017.3	VIMSS1749510	rrlB 23S ribosomal RNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+10395.5	VIMSS1748337	rrsA 16S ribosomal RNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+10395.5	VIMSS1749511	rrsB 16S ribosomal RNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+359.739	VIMSS1748336	rrlA 23S ribosomal RNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+30.0	VIMSS1746674	MSMEG_2093 sRNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+11.0	VIMSS1745290	dnaK chaperone protein DnaK (NCBI) [Mycobacterium smegmatis str. MC2 155]
+11.0	VIMSS1745981	MSMEG_1400 [Mycobacterium smegmatis str. MC2 155]
+9.75	VIMSS1749509	rrfB 5S ribosomal RNA (NCBI) [Mycobacterium smegmatis str. MC2 155]
+8.5	VIMSS1745600	MSMEG_1019 ribonucleoside-diphosphate reductase, alpha subunit (NCBI) [Mycobacterium smegmatis str. MC2 155]
+8.5	VIMSS1746880	MSMEG_2299 ribonucleoside-diphosphate reductase, alpha subunit (NCBI) [Mycobacterium smegmatis str. MC2 155]
+8.0	VIMSS1748816	mraZ MraZ protein (NCBI) [Mycobacterium smegmatis str. MC2 155]
+6.0	VIMSS1745224	MSMEG_0643 extracellular solute-binding protein, family protein 5, putative (NCBI) [Mycobacterium smegmatis str. MC2 155]
+6.0	VIMSS1745982	tuf translation elongation factor Tu (NCBI) [Mycobacterium smegmatis str. MC2 155]
+6.0	VIMSS1746163	groS chaperonin GroS (NCBI) [Mycobacterium smegmatis str. MC2 155]
+6.0	VIMSS1748413	MSMEG_3833 30S ribosomal protein S1 (NCBI) [Mycobacterium smegmatis str. MC2 155]
+6.0	VIMSS1749471	MSMEG_4891 alkylhydroperoxide reductase (NCBI) [Mycobacterium smegmatis str. MC2 155]
+5.0	VIMSS1744605	MSMEG_0024 peptidyl-prolyl cis-trans isomerase B (NCBI) [Mycobacterium smegmatis str. MC2 155]
+5.0	VIMSS1744989	MSMEG_0408 type I modular polyketide synthase (NCBI) [Mycobacterium smegmatis str. MC2 155]
+5.0	VIMSS1745609	MSMEG_1028 geranylgeranyl reductase (NCBI) [Mycobacterium smegmatis str. MC2 155]
+5.0	VIMSS1745946	rplL ribosomal protein L7/L12 (NCBI) [Mycobacterium smegmatis str. MC2 155]
+
+02
+
+very few reads... processed 28 reads, 22 reads pseudoaligned
+
+03

@@ -23,7 +23,10 @@ def main():
 
     fileLocations=PathClass()
 
-    fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/03_VS_Splitseq_23s-190846701/'
+    fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/01_VS_Splitseq-190834694/'
+    #fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/02_VS_Splitseq_noblockers-190854678/'
+    #fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/03_VS_Splitseq_23s-190846701/'
+    #fileLocations.FASTQdir='/Volumes/omics4tb/alomana/projects/mtb/data/04_VS_Splitseq_gDNA-190855677/'
     
     fileLocations.MSMgenomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.genome.fasta'
     fileLocations.MSMtranscriptomeFile='/Volumes/omics4tb/alomana/projects/mtb/data/references/246196.transcriptomes.fasta'
